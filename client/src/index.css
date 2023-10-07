@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap');
+
+/* font-family: 'Playfair Display', serif;
+font-family: 'Poppins', sans-serif; */
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+/* =================================================Header=============================================================================== */
+.navbar-brand{
+  font-family:  Roboto, sans-serif;
+  letter-spacing: 2px;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: black !important;
+}
+
+.nav-link{
+  padding: 1rem;
+}
+.active{
+  text-decoration: underline !important;
+  text-underline-offset: 1rem;
+}
+.nav-link:hover {
+  text-decoration: underline !important;
+  text-underline-offset: 1rem;
+
+}
+
+/* ======================================================= 404 Page not found =========================================================== */
+.pnf{
+  display: flex;
+  height: 75vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.pnf h1{
+  font-family:'Playfair Display', serif !important;
+  font-weight: 800 !important;
+  font-size: 4rem !important;
+}
+.pnf h4{
+  font-family: 'Arial Narrow Bold', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+}
