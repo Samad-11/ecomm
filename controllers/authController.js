@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 export const registerController = async (req, res) => {
   try {
     const { name, email, password, phone, address } = req.body;
-    if (!name || !email || !password || !phone || !address) {
+    if (!name || !email || !password || !phone) {
       return res.json({ success: false, message: "All fields are required" });
     }
     //existing user check
@@ -13,7 +13,7 @@ export const registerController = async (req, res) => {
     if (existingUser) {
       return res
         .status(200)
-        .json({ success: true, message: "Already Registered Please Login " });
+        .json({ success: false, message: "Already Registered Please Login " });
     }
 
     //register user
@@ -72,6 +72,7 @@ export const loginController = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Login Successful",
+      user,
       token,
     });
   } catch (error) {

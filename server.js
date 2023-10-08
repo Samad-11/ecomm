@@ -1,4 +1,4 @@
-import color from "colors";
+import cors from "cors";
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/dbConnect.js";
@@ -15,6 +15,7 @@ const app = express();
 
 //middlewares
 app.use(express.json());
+app.use(cors());
 
 //routes
 app.use("/api/v1/auth", authRoute);
