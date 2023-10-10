@@ -7,19 +7,27 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import { Toaster } from "react-hot-toast";
+import Dashboard from "./pages/user/Dashboard";
+import PrivateRoute from "./components/Routes/Private";
+import { HelmetProvider } from "react-helmet-async";
 
 function App() {
   return (
     <>
-      <Toaster />
-      <Routes>
-        <Route path="/" Component={Home} />
-        <Route path="/login" Component={Login} />
-        <Route path="/register" Component={Register} />
-        <Route path="/about" Component={About} />
-        <Route path="/contact" Component={Contact} />
-        <Route path="/*" Component={NotFound} />
-      </Routes>
+      <HelmetProvider>
+        <Toaster />
+        <Routes>
+          <Route path="/" Component={Home} />
+          <Route path="/dashboard" Component={PrivateRoute}>
+            <Route path="" Component={Dashboard} />
+          </Route>
+          <Route path="/login" Component={Login} />
+          <Route path="/register" Component={Register} />
+          <Route path="/about" Component={About} />
+          <Route path="/contact" Component={Contact} />
+          <Route path="/*" Component={NotFound} />
+        </Routes>
+      </HelmetProvider>
     </>
   );
 }

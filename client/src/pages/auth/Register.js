@@ -4,6 +4,7 @@ import watchImg from "../../images/registration-img.jpeg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { SEO } from "../../components/SEO";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -44,6 +45,7 @@ const Register = () => {
 
   return (
     <Layout>
+      <SEO title={"Register-User"} />
       <h3 className="text-end text-secondary mb-4 p-1">Register</h3>
       <div className="container mb-2">
         <div className="row p-4" style={{ border: "2px solid gray" }}>

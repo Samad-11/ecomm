@@ -21,4 +21,9 @@ router.post("/login", loginController);
 //test route
 router.get("/test", isSignIn, isAdmin, testController);
 
+//protected route
+router.get("/user-auth", isSignIn, (req, res) => {
+  res.status(200).json({ ok: true });
+});
+
 export default router;

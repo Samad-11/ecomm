@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useAuth } from "../../contexts/authContext";
+import { SEO } from "../../components/SEO";
 
 const Login = () => {
   const [auth, setAuth] = useAuth();
@@ -56,6 +57,7 @@ const Login = () => {
 
   return (
     <Layout>
+      <SEO title={"Login Here"} />
       <h3 className="text-end text-secondary mb-4 p-1">Login</h3>
       <div className="container mb-2">
         <div className="row p-4" style={{ border: "2px solid gray" }}>
