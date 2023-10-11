@@ -22,12 +22,12 @@ export const isAdmin = async (req, res, next) => {
   try {
     console.log(req);
     const user = await userModel.findOne({ _id: req.user._id });
-    if (user.role !== 1) {
-      return res
-        .status(401)
-        .json({ success: false, message: "Unauthorized Access" });
+    if (user.role === 1) {
+      // res
+      //   .status(200)
+      //   .json({ success: true, message: "Admin Authorization Success" });
+      next();
     }
-    res.status(200).json({ success: true, message: "Authorization Success" });
   } catch (error) {
     console.log(error);
   }

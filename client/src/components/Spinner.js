@@ -6,11 +6,9 @@ const Spinner = () => {
   const [count, setCount] = useState(5);
   useEffect(() => {
     const interval = setInterval(() => {
-      setCount((prevState) => {
-        return --prevState;
-      });
+      setCount(count - 1);
     }, 1000);
-    if (count === 0) {
+    if (count === 1) {
       navigate("/login");
       clearInterval(interval);
     }
@@ -22,7 +20,7 @@ const Spinner = () => {
         style={{ minHeight: "100vh" }}
       >
         <div className="spinner-border" role="status"></div>
-        <h2>Redirecting you in 5 sec</h2>
+        <h2>Redirecting you in {count} sec</h2>
       </div>
     </>
   );

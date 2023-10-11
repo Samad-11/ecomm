@@ -3,6 +3,7 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/dbConnect.js";
 import authRoute from "./routes/authRoute.js";
+import categoryRoute from "./routes/categoryRoute.js";
 
 //config env
 dotenv.config();
@@ -19,6 +20,7 @@ app.use(cors());
 
 //routes
 app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/category", categoryRoute);
 
 //rest api
 app.get("/hello", (req, res) => {

@@ -10,6 +10,8 @@ import { Toaster } from "react-hot-toast";
 import Dashboard from "./pages/user/Dashboard";
 import PrivateRoute from "./components/Routes/Private";
 import { HelmetProvider } from "react-helmet-async";
+import AdminPrivateRoute from "./components/Routes/AdminPrivate";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 
 function App() {
   return (
@@ -18,8 +20,11 @@ function App() {
         <Toaster />
         <Routes>
           <Route path="/" Component={Home} />
-          <Route path="/dashboard" Component={PrivateRoute}>
+          <Route path="/user-dashboard" Component={PrivateRoute}>
             <Route path="" Component={Dashboard} />
+          </Route>
+          <Route path="admin-dashboard" Component={AdminPrivateRoute}>
+            <Route path="" Component={AdminDashboard} />
           </Route>
           <Route path="/login" Component={Login} />
           <Route path="/register" Component={Register} />
