@@ -5,6 +5,7 @@ import connectDB from "./config/dbConnect.js";
 import authRoute from "./routes/authRoute.js";
 import categoryRoute from "./routes/categoryRoute.js";
 import productRoute from "./routes/productRoute.js";
+import userListRoute from "./routes/userListRoute.js";
 
 //config env
 dotenv.config();
@@ -24,6 +25,7 @@ app.use("/product", express.static("public/productImage"));
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/category", categoryRoute);
 app.use("/api/v1/product", productRoute);
+app.use("/api/v1/user", userListRoute);
 
 //rest api
 app.get("/hello", (req, res) => {

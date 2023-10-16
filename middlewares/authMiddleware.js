@@ -6,6 +6,7 @@ export const isSignIn = async (req, res, next) => {
     const token = req.headers.authorization;
     if (token) {
       const decode = jwt.verify(token, process.env.JWT_SECRET);
+      console.log("testing", req.user);
       req.user = decode;
       next();
     }
@@ -30,5 +31,6 @@ export const isAdmin = async (req, res, next) => {
     }
   } catch (error) {
     console.log(error);
+    res.status(500).json({ error });
   }
 };

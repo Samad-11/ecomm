@@ -5,15 +5,20 @@ import path from "path";
 
 export const createProductController = async (req, res) => {
   try {
-    const { name, description, price, category, quantity } = req.body;
+    const { name, description, price, category, quantity, tags } = req.body;
     if (!name || !description || !price || !category || !quantity) {
       return res
         .status(401)
         .json({ success: false, message: "All fields are required..." });
     }
+    let tagsArray = [];
+    if (tags) {
+      tagsArray = tags.trim().split(",");
+    }
     const product = new productModel({
       name,
       description,
+      tags: tagsArray,
       price,
       category,
       quantity,
@@ -79,7 +84,7 @@ export const updateProductController = async (req, res) => {
     const { _id } = await req.params;
     let toUpdate = await req.body;
     if (req.body.name) {
-      toUpdate = Object.assign({ slug: slugify(req.body.name) });
+      toUpdate = Object.assign({ ...toUpdate, slug: slugify(req.body.name) });
     }
     if (req.file) {
       let img = await productModel.findById(_id).select("image");
@@ -98,7 +103,7 @@ export const updateProductController = async (req, res) => {
         .status(401)
         .json({ success: false, message: "Error in update product" });
     }
-    res.status(200).json({ success: true, result });
+    res.status(200).json({ success: true, toUpdate, result });
   } catch (error) {
     console.log();
     res.status(500).json({

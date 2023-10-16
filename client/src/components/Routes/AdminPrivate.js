@@ -19,7 +19,6 @@ const AdminPrivateRoute = () => {
           },
         }
       );
-      console.log("testingggggggggggg", res.data);
       if (res.data.ok) {
         setOk(true);
       } else {

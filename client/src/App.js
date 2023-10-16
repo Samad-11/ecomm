@@ -12,6 +12,9 @@ import PrivateRoute from "./components/Routes/Private";
 import { HelmetProvider } from "react-helmet-async";
 import AdminPrivateRoute from "./components/Routes/AdminPrivate";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminCategory from "./pages/admin/AdminCategory";
+import AdminProduct from "./pages/admin/AdminProduct";
+import AdminUsers from "./pages/admin/AdminUsers";
 
 function App() {
   return (
@@ -20,11 +23,14 @@ function App() {
         <Toaster />
         <Routes>
           <Route path="/" Component={Home} />
-          <Route path="/user-dashboard" Component={PrivateRoute}>
-            <Route path="" Component={Dashboard} />
+          <Route path="/dashboard" Component={PrivateRoute}>
+            <Route path="/dashboard/user" Component={Dashboard} />
           </Route>
-          <Route path="admin-dashboard" Component={AdminPrivateRoute}>
-            <Route path="" Component={AdminDashboard} />
+          <Route path="/dashboard" Component={AdminPrivateRoute}>
+            <Route path="/dashboard/admin" Component={AdminDashboard} />
+            <Route path="/dashboard/admin/category" Component={AdminCategory} />
+            <Route path="/dashboard/admin/product" Component={AdminProduct} />
+            <Route path="/dashboard/admin/users" Component={AdminUsers} />
           </Route>
           <Route path="/login" Component={Login} />
           <Route path="/register" Component={Register} />

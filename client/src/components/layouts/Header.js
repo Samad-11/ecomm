@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../contexts/authContext";
 import { toast } from "react-hot-toast";
@@ -11,6 +11,15 @@ const Header = () => {
     localStorage.removeItem("auth");
     toast.success("Logout Successful");
   };
+  const [dashboard, setDashboard] = useState(null);
+
+  useEffect(() => {
+    if (auth?.user?.role === 1) {
+      setDashboard("/dashboard/admin");
+    } else {
+      setDashboard("/dashboard/user");
+    }
+  }, []);
 
   return (
     <>
@@ -77,6 +86,11 @@ const Header = () => {
                       </>
                     ) : (
                       <>
+                        <li className="dropdown-item">
+                          <NavLink className="nav-link" to={dashboard}>
+                            Dashboard
+                          </NavLink>
+                        </li>
                         <li className="dropdown-item">
                           <NavLink
                             onClick={handleLogout}
