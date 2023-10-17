@@ -7,6 +7,7 @@ const AdminCategory = () => {
   const [categories, setCategories] = useState([]);
   const [newCategory, setNewCategory] = useState("");
   const [updateCategory, setUpdateCategory] = useState("");
+  //eslint-disable-next-line
   const [auth, setAuth] = useAuth();
   const ref = useRef();
 

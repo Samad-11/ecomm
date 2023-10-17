@@ -5,6 +5,7 @@ import axios from "axios";
 import { useAuth } from "../../contexts/authContext";
 
 const AdminUsers = () => {
+  //eslint-disable-next-line
   const [auth, setAuth] = useAuth();
   const [allUsers, setAllUsers] = useState([]);
   const getAllUser = async () => {
@@ -28,6 +29,7 @@ const AdminUsers = () => {
   };
   useEffect(() => {
     getAllUser();
+    //eslint-disable-next-line
   }, []);
   let i = 0;
 
